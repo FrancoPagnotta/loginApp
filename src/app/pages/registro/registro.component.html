@@ -1,10 +1,10 @@
 
-<div class="d-flex justify-content-center my-5 animate__animated animate__fadeIn">
-  <div class="container w-50 h-50 p-3 bg-dark text-light">
+<div class="d-flex justify-content-center my-5 animate__animated animate__fadeInLeft">
+  <div class="container w-50 h-50 p-5 bg-dark text-light">
     <div class="text-center mb-5">
       <h3> Crear Nueva Cuenta </h3>
     </div>
-    <form #registroForm="ngForm" class="form" (ngSubmit)="onSubmit(registroForm)">
+    <form #registroForm="ngForm" class="form" (ngSubmit)="registroSubmit(registroForm)">
       <div class="mb-3">
         <label class="form-label"> Nombre </label>
         <input type="text" name="nombre" class="form-control" [(ngModel)]="usuario.nombre" placeholder="Juan" required minlength="2">

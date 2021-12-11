@@ -1,25 +1,29 @@
 
-<div class="d-flex justify-content-center my-5">
-  <div class="container w-25 h-25 p-5 bg-dark text-light">
+<div class="d-flex justify-content-center my-5 animate__animated animate__fadeIn">
+  <div class="container w-50 h-50 p-3 bg-dark text-light">
     <div class="text-center mb-5">
       <h3> Crear Nueva Cuenta </h3>
     </div>
-    <form class="form" (ngSubmit)="onSubmit()">
+    <form #registroForm="ngForm" class="form" (ngSubmit)="onSubmit(registroForm)">
       <div class="mb-3">
         <label class="form-label"> Nombre </label>
-        <input type="text" name="nombre" class="form-control" [(ngModel)]="usuario.nombre" placeholder="Juan">
+        <input type="text" name="nombre" class="form-control" [(ngModel)]="usuario.nombre" placeholder="Juan" required minlength="2">
+        <span *ngIf="registroForm.submitted && registroForm.controls.nombre.errors" class="text-danger animate__animated animate__fadeIn"> Debes ingresar un nombre </span>
       </div>
       <div class="mb-3">
         <label class="form-label"> Apellido </label>
-        <input type="text" name="apellido" class="form-control" [(ngModel)]="usuario.apellido" placeholder="Perez">
+        <input type="text" name="apellido" class="form-control" [(ngModel)]="usuario.apellido" placeholder="Perez" required minlength="2">
+        <span *ngIf="registroForm.submitted && registroForm.controls.apellido.errors" class="text-danger animate__animated animate__fadeIn"> Debes ingresar un apellido </span>
       </div>
       <div class="mb-3">
         <label class="form-label"> Email </label>
-        <input type="email" name="email" class="form-control" [(ngModel)]="usuario.email" placeholder="email@gmail.com">
+        <input type="email" name="email" class="form-control" [(ngModel)]="usuario.email" placeholder="email@gmail.com" required>
+        <span *ngIf="registroForm.submitted && registroForm.controls.email.errors" class="text-danger animate__animated animate__fadeIn"> Debes ingresar un email valido </span>
       </div>
       <div class="mb-3">
         <label class="form-label"> Contraseña </label>
-        <input type="password" name="contrasenia" class="form-control" [(ngModel)]="usuario.contrasenia" placeholder="password1234.">
+        <input type="password" name="contrasenia" class="form-control" [(ngModel)]="usuario.contrasenia" placeholder="password1234." required minlength="6">
+        <span *ngIf="registroForm.submitted && registroForm.controls.contrasenia.errors" class="text-danger animate__animated animate__fadeIn"> Debes ingresar una contraseña </span>
       </div>
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input">

@@ -22,8 +22,8 @@
       </div>
       <div class="mb-3">
         <label class="form-label"> Contraseña </label>
-        <input type="password" name="contrasenia" class="form-control" [(ngModel)]="usuario.contrasenia" placeholder="password1234." required minlength="6">
-        <span *ngIf="registroForm.submitted && registroForm.controls.contrasenia.errors" class="text-danger animate__animated animate__fadeIn"> Debes ingresar una contraseña </span>
+        <input type="password" name="password" class="form-control" [(ngModel)]="usuario.password" placeholder="password1234." required minlength="6">
+        <span *ngIf="registroForm.submitted && registroForm.controls.password.errors" class="text-danger animate__animated animate__fadeIn"> Debes ingresar una contraseña </span>
       </div>
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input">

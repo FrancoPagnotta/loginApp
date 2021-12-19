@@ -26,7 +26,7 @@
         <span *ngIf="registroForm.submitted && registroForm.controls.password.errors" class="text-danger animate__animated animate__fadeIn"> Debes ingresar una contraseña </span>
       </div>
       <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input">
+        <input [(ngModel)]="recordarUsuarioCheck" type="checkbox" class="form-check-input" name="recordarUsuario">
         <label class="form-check-label" for="exampleCheck1"> Recordar usuario </label>
       </div>
       <button type="submit" class="btn btn-primary w-100"> Crear Cuenta </button>

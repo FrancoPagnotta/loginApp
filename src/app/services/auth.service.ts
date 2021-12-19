@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { UsuarioModel } from '../models/usuario.model';
 import { map } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class AuthService {
 
   // INGRESAR      https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
 
-  constructor(private _httClient: HttpClient) { }
+  constructor(private _httClient: HttpClient, private  _router: Router) { 
+  }
 
   signUpNewUser(usuario: UsuarioModel) {
 
@@ -83,5 +85,12 @@ export class AuthService {
 
   }
 
-  logOut() {}
+  isAuthenticated() : boolean {
+    return localStorage.getItem('token') ? true : false;
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+    this._router.navigateByUrl('/login');
+  }
 }
